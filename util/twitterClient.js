@@ -88,3 +88,32 @@ exports.get = async (params, searchType) => {
 
   return response;
 };
+
+exports.getRandom = async () => {
+  const accounts = [
+    "barackobama",
+    "cristiano",
+    "elonmusk",
+    "katyperry",
+    "rihanna",
+  ];
+
+  const responseArray = await Promise.all(
+    accounts.map(async (elem) => {
+      const query = getQueryString(elem, "username");
+
+      const response = await client
+        .get(query)
+        .then((resp) => resp)
+        .catch((err) => err.response);
+
+      if (response.status === 200) {
+        return formatSearchResponse(response, "username");
+      } else {
+        return {}; // for everything else
+      }
+    })
+  );
+
+  return responseArray;
+};
