@@ -19,7 +19,7 @@ const getQueryString = (params, searchType) => {
     query = encodeURIComponent(params);
   }
 
-  return `recent?qery=${query}&expansions=author_id,attachments.media_keys&user.fields=created_at,description,entities,name,profile_image_url,public_metrics,username,verified&tweet.fields=created_at,entities,public_metrics&media.fields=preview_image_url,url`;
+  return `recent?query=${query}&expansions=author_id,attachments.media_keys&user.fields=created_at,description,entities,name,profile_image_url,public_metrics,username,verified&tweet.fields=created_at,entities,public_metrics&media.fields=preview_image_url,url`;
 };
 
 const formatSearchResponse = (twitterAPIResponse, searchType) => {
