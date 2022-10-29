@@ -1,8 +1,12 @@
 # example netlify.toml
 [build]
   command = "# no build command"
-  functions = "netlify/functions"
-  publish = "public"
+  functions = "functions"
+
+[[redirects]]
+  from = '/api/tweets/*'
+  to = '/.netlify/functions/:splat'
+  status = 200
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
