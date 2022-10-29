@@ -25,6 +25,9 @@ exports.handler = async (event, context) => {
     if (response.status === 200) {
       return {
         statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
         body: JSON.stringify({
           status: 200,
           statusText: "OK",
@@ -36,6 +39,9 @@ exports.handler = async (event, context) => {
     else {
       return {
         statusCode: 400,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
         body: JSON.stringify({
           status: 400,
           statusTxt: "Bad Request",
@@ -48,6 +54,9 @@ exports.handler = async (event, context) => {
   else {
     return {
       statusCode: 400,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
       body: JSON.stringify({
         status: 400,
         statusText: "Bad Request",
