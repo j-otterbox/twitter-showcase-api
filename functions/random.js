@@ -8,6 +8,9 @@ exports.handler = async (event, context) => {
     // but will always return something so only 200 status code is handled
     return {
       statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
       body: JSON.stringify({
         status: 200,
         statusText: "OK",
